@@ -8,7 +8,7 @@ Ubah Silahkan, Biar Bot Kalian Jadi Semakin Bagus. Selamat Mencoba!
 
 ### Made by Meliodas.#4613 With Luve :3
 * Enable/Disable Welcome Image Sesuka Kalian
-* Channel Bisa Di Set Dimanapun Kalian Mau
+* Channel Bisa Di Custom Dimanapun Kalian Mau
 * Message Bisa Di Custom... Max 34 Huruf (Recomended) Atau Lebih (Ubah Sendiri)
 * Background Bisa Kalian Set Sendiri Menggunakan Link (`.JPG` / `.PNG`)
 
@@ -39,7 +39,7 @@ bot.on("ready", async() => {
   console.log("Welcome Image Ready!")
 });
 
-bot.on("message", async(msg) => {
+bot.on("message", async msg => {
   const args = msg.content.split(" ");
   let command = msg.content.toLowerCase().split(" ")[0];
   command = command.slice(Prefix.length);
@@ -67,7 +67,7 @@ bot.on("message", async(msg) => {
   };
 });
 
-bot.on("guildMemberAdd", async(member) => {
+bot.on("guildMemberAdd", async member => {
   // Uppsss
 });
 
@@ -103,7 +103,7 @@ bot.on("message", async(msg) => {
 
 <img src="https://cdn.discordapp.com/attachments/684577548381978657/687164334727888920/unknown.png"/>
 
-### Mengatur & Menentukan Channel Untuk Welcome Image
+### Meng-Custom Channel Untuk Welcome Image
 
 * **Channel**: Welcome Image Akan Dikirim Pada Channel Yang Kalian Inginkan
 * **Usage**: `[Prefix]Welcome Channel <#channel>`
@@ -131,7 +131,7 @@ bot.on("message", async msg => {
 
 <img src="https://cdn.discordapp.com/attachments/684577548381978657/687165092458135582/unknown.png"/>
 
-### Menambahkan & Mengganti Message Pada Welcome Image
+### Meng-Custom Message Pada Welcome Image
 
 * **Message**: Mengganti Default Message Dengan Message Yang Kalian Inginkan. (Message Akan Ditampilkan Pada Welcome Image)
 * **Usage**: `[Prefix]Welcome Message <Message>`
@@ -159,7 +159,7 @@ bot.on("message", async msg => {
 
 <img src="https://cdn.discordapp.com/attachments/684577548381978657/687165271529750534/unknown.png"/>
 
-### Mengganti Background Welcome Image
+### Meng-Custom Background Welcome Image
 
 * **Background**: Mengganti Default Background Dengan Background Yang Kalian Inginkan
 * **Usage**: `[Prefix]Welcome Background <URL -> .JPG / .PNG>`
@@ -186,6 +186,62 @@ bot.on("message", async msg => {
 ```
 
 <img src="https://cdn.discordapp.com/attachments/684577548381978657/687165986943926273/unknown.png"/>
+
+### Hal Ke-Dua Yang Perlu Kalian Lakukan
+
+* Tambahkan Event "guildMemberAdd" Pada PROJECT Kalian
+* { Get } Database Welcome Image
+* Buat Susunan Welcome Image
+* Send Welcome Image Berupa File Gambar
+
+```js
+bot.on("guildMemberRemove", async member => {
+  let Config = db.get(`${member.guild.id}.Config.Goodbye.Used`);
+  if (Config === "YA") {
+    let Channel = db.get(`${member.guild.id}.Config.Goodbye.Channel`);
+    if (!Channel) {
+      return;
+    } else {
+      let BG = db.get(`${member.guild.id}.Config.Goodbye.Background`);
+      if (!BG) BG = "https://wallpaperaccess.com/full/647810.jpg";
+      let MSG = db.get(`${member.guild.id}.Config.Goodbye.Message`);
+      if (!MSG) MSG = "Goodbye! See U Again!! (Defaullt)";
+      Canvas.registerFont(resolve(join(__dirname, "./UniHeavvy.otf")), "Font");
+      var imageUrlRegex = /\?size=2048$/g;
+      var { body: avatar } = await get(
+        member.user.displayAvatarURL.replace(imageUrlRegex, "?size512")
+      );
+      var { body: background } = await get(`${BG}`);
+      async function createCanvas() {
+        return new Canvas(1024, 450)
+          .addImage(background, 0, -100)
+          .setColor("#ffffff")
+          .addCircle(512, 155, 120)
+          .addCircularImage(avatar, 512, 155, 115)
+          .setTextAlign("center")
+          .setTextFont("58pt Font")
+          .setColor("#ffffff")
+          .addText("GOODBYE", 512, 355)
+          .setTextAlign("center")
+          .setTextFont("30pt Font")
+          .setColor("#ffffff")
+          .addText(`${member.user.tag}`, 512, 395)
+          .setTextAlign("center")
+          .setTextFont("24pt Font")
+          .setColor("#ffffff")
+          .addText(`${MSG}`, 512, 430)
+          .toBuffer();
+      }
+      let Channelz = bot.channels.get(`${Channel}`);
+      Channelz.send({
+        files: [{ attachment: await createCanvas(), name: "goodbye.png" }]
+      });
+    }
+  } else {
+    return;
+  }
+});
+```
 
 ## Results
 
