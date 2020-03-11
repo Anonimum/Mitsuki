@@ -1,62 +1,61 @@
-let Argumen = xxxxxxxx;
+let Argumen = xxxxx;
 
 if (Argumen.toUpperCase() === "ENABLE") {
-  msg.channel.send(`**MANTABS!** Welcome -> Enabled!`);
-  db.set(`${msg.guild.id}.Config.Welcome.Used`, "YA");
-}
+  msg.channel.send(`Enable`);
+  db.set(`${msg.guild.id}.Config.Welcome.ED`, "YA");
+};
 
 if (Argumen.toUpperCase() === "DISABLE") {
-  msg.channel.send(`**UPPSSSS!** Welcome -> Disabled!`);
-  db.set(`${msg.guild.id}.Config.Welcome.Used`, "TIDAK");
-}
+  msg.channel.send(`Disable`);
+  db.set(`${msg.guild.id}.Config.Welcome.ED`, "TIDAK");
+};
 
 if (Argumen.toUpperCase() === "CHANNEL") {
   let Channel = msg.mentions.channels.first();
   if (!Channel) {
-    msg.channel.send(`**FAILED!** Guide: \`m/welcome channel [#channel]\``);
+    msg.channel.send(`Channel??`);
   } else {
-    msg.channel.send(`**MANTABS!** Welcome Channel: <#${Channel.id}>`);
+    msg.channel.send(`Channel: ${Channel.id}`);
     db.set(`${msg.guild.id}.Config.Welcome.Channel`, Channel.id);
-  }
-}
+  };
+};
 
 if (Argumen.toUpperCase() === "MESSAGE" || Argumen.toUpperCase() === "MSG") {
   let Message = args.slice(2).join(" ");
   if (Message.length > 24) {
-    msg.channel.send(
-      `**FAILED!** Guide: \`m/welcome message [Welcome to My Server]\` Max. Length: 24`
-    );
+    msg.channel.send(`Message??`);
   } else {
-    msg.channel.send(`**MANTABS!** Welcome Message: ${Message}`);
+    msg.channel.send(`Message: ${Message}`);
     db.set(`${msg.guild.id}.Config.Welcome.Message`, Message);
-  }
-}
+  };
+};
 
 if (Argumen.toUpperCase() === "BACKGROUND" || Argumen.toUpperCase() === "BG") {
   let Background = args.slice(2).join(" ");
   if (!Background) {
-    msg.channel.send(
-      `**FAILED!** Guide: \`m/welcome background [https:/mitsuki.xyz/mitsuki.png]\``
-    );
+    msg.channel.send(`Background??`);
   } else {
-    msg.channel.send(`**MANTABS!** Welcome Background: ${Background}`);
+    msg.channel.send(`Background: ${Background}`);
     db.set(`${msg.guild.id}.Config.Welcome.Background`, Background);
-  }
-}
+  };
+};
 
 if (Argumen.toUpperCase() === "TEST") {
-  let Config = db.get(`${msg.guild.id}.Config.Welcome.Used`);
+  let Config = db.get(`${msg.guild.id}.Config.Welcome.ED`);
   if (Config === "YA") {
+      
     let BG = db.get(`${msg.guild.id}.Config.Welcome.Background`);
     if (!BG) BG = "https://wallpaperaccess.com/full/647810.jpg";
+      
     let MSG = db.get(`${msg.guild.id}.Config.Welcome.Message`);
     if (!MSG) MSG = "Welcome To My Server! ENJOY! (Defaullt)";
+      
     Canvas.registerFont(resolve(join(__dirname, "./UniHeavvy.otf")), "Font");
+      
     var imageUrlRegex = /\?size=2048$/g;
-    var { body: avatar } = await get(
-      msg.author.displayAvatarURL.replace(imageUrlRegex, "?size512")
-    );
+    var { body: avatar } = await get(msg.author.displayAvatarURL.replace(imageUrlRegex, "?size512"));
     var { body: background } = await get(`${BG}`);
+      
     async function createCanvas() {
       return new Canvas(1024, 450)
         .addImage(background, 0, -100)
@@ -76,11 +75,10 @@ if (Argumen.toUpperCase() === "TEST") {
         .setColor("#ffffff")
         .addText(`${MSG}`, 512, 430)
         .toBuffer();
-    }
-    msg.channel.send({
-      files: [{ attachment: await createCanvas(), name: "welcome.png" }]
-    });
+    };
+      
+    msg.channel.send({files: [{ attachment: await createCanvas(), name: "welcome.png" }]});
   } else {
-    msg.channel.send(`**FAILED!** Enable The Welcome Feature First!`);
-  }
-}
+    msg.channel.send(`Enable!?!?`);
+  };
+};
