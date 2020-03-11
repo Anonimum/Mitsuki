@@ -138,7 +138,7 @@ bot.on("message", async msg => {
 ### Hal Ke-Dua Yang Perlu Kalian Lakukan
 
 * Tambahkan Event "guildMemberAdd" Pada PROJECT Kalian
-* { Get } Database Welcome Image
+* Get Database Welcome Image
 * Buat Susunan Welcome Image
 * Send Welcome Image Berupa File Gambar
 
@@ -156,7 +156,6 @@ bot.on("guildMemberAdd", async member => {
       let MSG = db.get(`${member.guild.id}.Config.Welcome.Message`);
       if (!MSG) MSG = "DEFAULT MESSAGE";
       
-      Canvas.registerFont(xx(xx(__dirname, "./Font.otf")), "Font");
       var imageUrlRegex = /\?size=2048$/g;
       var { body: avatar } = await get(member.user.displayAvatarURL.replace(imageUrlRegex, "?size512"));
       var { body: background } = await get(`${BG}`);
@@ -167,15 +166,12 @@ bot.on("guildMemberAdd", async member => {
           .addCircle(512, 155, 120)
           .addCircularImage(avatar, 512, 155, 115)
           .setTextAlign("center")
-          .setTextFont("58pt Font")
           .setColor("#ffffff")
           .addText("WELCOME", 512, 355)
           .setTextAlign("center")
-          .setTextFont("30pt Font")
           .setColor("#ffffff")
           .addText(`${member.user.tag}`, 512, 395)
           .setTextAlign("center")
-          .setTextFont("24pt Font")
           .setColor("#ffffff")
           .addText(`${MSG}`, 512, 430)
           .toBuffer();
