@@ -187,7 +187,7 @@ bot.on("guildMemberAdd", async member => {
 
 ## Results
 
-Ini Adalah Hasil Dari Apa Yang Sudah Kalian Baca Dan Simak Diatas! Selamat Mencobaa!!
+`Ini Adalah Hasil Dari Apa Yang Sudah Kalian Baca Dan Simak Diatas! Selamat Mencobaa!!`
 
 * Enable/Disable Welcome Image Sesuka Kalian
 * Channel Bisa Di Custom Dimanapun Kalian Mau
