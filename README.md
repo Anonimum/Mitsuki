@@ -43,6 +43,32 @@ bot.on("message", async(msg) => {
   const args = msg.content.split(" ");
   let command = msg.content.toLowerCase().split(" ")[0];
   command = command.slice(Prefix.length);
+  const Argumen = args[1];
+  
+  if (command.toUpperCase() === "WELCOME") {
+    if (Argumen.toUpperCase() === "ENABLE") {
+      // Uppsss
+    };
+    if (Argumen.toUpperCase() === "DISABLE") {
+      // Uppsss
+    };
+    if (Argumen.toUpperCase() === "CHANNEL") {
+      // Uppsss
+    };
+    if (Argumen.toUpperCase() === "MESSAGE") {
+      // Uppsss
+    };
+    if (Argumen.toUpperCase() === "BACKGROUND") {
+      // Uppsss
+    };
+    if (Argumen.toUpperCase() === "TEST") {
+      // Uppsss
+    };
+  };
+});
+
+bot.on("guildMemberAdd", async(member) => {
+  // Uppsss
 });
 
 bot.login(Token);
@@ -50,8 +76,9 @@ bot.login(Token);
 
 ### Enable & Disable
 
-* **Enable**: Meng-Aktifkan Welcome Image
-* **Disable**: Meng-Nonaktifkan Welcome Image
+* **Enable**: Pilih Enable Untuk Meng-Aktifkan Welcome Image
+* **Disable**: Pilih Disable Untuk Meng-Nonaktifkan Welcome Image
+* **Usage**: `[Prefix]Welcome <Enable/Disable>`
 
 ```js
 bot.on("message", async(msg) => {
@@ -77,6 +104,10 @@ bot.on("message", async(msg) => {
 <img src="https://cdn.discordapp.com/attachments/684577548381978657/687164334727888920/unknown.png"/>
 
 ### Channel
+
+* **Channel**: Welcome Image Akan Dikirim Pada Channel Yang Kalian Inginkan
+* **Usage**: `[Prefix]Welcome Channel <#channel>`
+
 ```js
 bot.on("message", async msg => {
   const args = msg.content.split(" ");
@@ -101,6 +132,10 @@ bot.on("message", async msg => {
 <img src="https://cdn.discordapp.com/attachments/684577548381978657/687165092458135582/unknown.png"/>
 
 ### Message
+
+* **Message**: Mengganti Default Message Dengan Message Yang Kalian Inginkan. (Message Akan Ditampilkan Pada Welcome Image)
+* **Usage**: `[Prefix]Welcome Message <Message>`
+  
 ```js
 bot.on("message", async msg => {
   const args = msg.content.split(" ");
@@ -125,6 +160,10 @@ bot.on("message", async msg => {
 <img src="https://cdn.discordapp.com/attachments/684577548381978657/687165271529750534/unknown.png"/>
 
 ### Background
+
+* **Background**: Mengganti Default Background Dengan Background Yang Kalian Inginkan
+* **Usage**: `[Prefix]Welcome Background <URL -> .JPG / .PNG>`
+  
 ```js
 bot.on("message", async msg => {
   const args = msg.content.split(" ");
