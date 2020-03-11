@@ -1,5 +1,3 @@
-let Argumen = xxxxx;
-
 if (Argumen.toUpperCase() === "ENABLE") {
   msg.channel.send(`Enable`);
   db.set(`${msg.guild.id}.Config.Welcome.ED`, "YA");
@@ -50,8 +48,6 @@ if (Argumen.toUpperCase() === "TEST") {
     let MSG = db.get(`${msg.guild.id}.Config.Welcome.Message`);
     if (!MSG) MSG = "Welcome To My Server! ENJOY! (Defaullt)";
       
-    Canvas.registerFont(resolve(join(__dirname, "./UniHeavvy.otf")), "Font");
-      
     var imageUrlRegex = /\?size=2048$/g;
     var { body: avatar } = await get(msg.author.displayAvatarURL.replace(imageUrlRegex, "?size512"));
     var { body: background } = await get(`${BG}`);
@@ -63,15 +59,12 @@ if (Argumen.toUpperCase() === "TEST") {
         .addCircle(512, 155, 120)
         .addCircularImage(avatar, 512, 155, 115)
         .setTextAlign("center")
-        .setTextFont("58pt Font")
         .setColor("#ffffff")
         .addText("WELCOME", 512, 355)
         .setTextAlign("center")
-        .setTextFont("30pt Font")
         .setColor("#ffffff")
         .addText(`${msg.member.user.tag}`, 512, 395)
         .setTextAlign("center")
-        .setTextFont("24pt Font")
         .setColor("#ffffff")
         .addText(`${MSG}`, 512, 430)
         .toBuffer();
