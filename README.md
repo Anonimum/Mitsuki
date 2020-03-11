@@ -195,22 +195,22 @@ bot.on("message", async msg => {
 * Send Welcome Image Berupa File Gambar
 
 ```js
-bot.on("guildMemberRemove", async member => {
-  let Config = db.get(`${member.guild.id}.Config.Goodbye.Used`);
+bot.on("guildMemberAdd", async member => {
+  let Config = db.get(`${member.guild.id}.Config.Welcome.ED`);
   if (Config === "YA") {
-    let Channel = db.get(`${member.guild.id}.Config.Goodbye.Channel`);
+    let Channel = db.get(`${member.guild.id}.Config.Welcome.Channel`);
     if (!Channel) {
       return;
     } else {
-      let BG = db.get(`${member.guild.id}.Config.Goodbye.Background`);
-      if (!BG) BG = "https://wallpaperaccess.com/full/647810.jpg";
-      let MSG = db.get(`${member.guild.id}.Config.Goodbye.Message`);
-      if (!MSG) MSG = "Goodbye! See U Again!! (Defaullt)";
-      Canvas.registerFont(resolve(join(__dirname, "./UniHeavvy.otf")), "Font");
+      let BG = db.get(`${member.guild.id}.Config.Welcome.Background`);
+      if (!BG) BG = "URL DEFAULT BACKGROUND";
+      
+      let MSG = db.get(`${member.guild.id}.Config.Welcome.Message`);
+      if (!MSG) MSG = "DEFAULT MESSAGE";
+      
+      Canvas.registerFont(xx(xx(__dirname, "./Font.otf")), "Font");
       var imageUrlRegex = /\?size=2048$/g;
-      var { body: avatar } = await get(
-        member.user.displayAvatarURL.replace(imageUrlRegex, "?size512")
-      );
+      var { body: avatar } = await get(member.user.displayAvatarURL.replace(imageUrlRegex, "?size512"));
       var { body: background } = await get(`${BG}`);
       async function createCanvas() {
         return new Canvas(1024, 450)
@@ -221,7 +221,7 @@ bot.on("guildMemberRemove", async member => {
           .setTextAlign("center")
           .setTextFont("58pt Font")
           .setColor("#ffffff")
-          .addText("GOODBYE", 512, 355)
+          .addText("WELCOME", 512, 355)
           .setTextAlign("center")
           .setTextFont("30pt Font")
           .setColor("#ffffff")
@@ -231,15 +231,13 @@ bot.on("guildMemberRemove", async member => {
           .setColor("#ffffff")
           .addText(`${MSG}`, 512, 430)
           .toBuffer();
-      }
+      };
       let Channelz = bot.channels.get(`${Channel}`);
-      Channelz.send({
-        files: [{ attachment: await createCanvas(), name: "goodbye.png" }]
-      });
-    }
+      Channelz.send({files: [{ attachment: await createCanvas(), name: "welcome.png" }]});
+    };
   } else {
     return;
-  }
+  };
 });
 ```
 
