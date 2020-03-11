@@ -137,7 +137,7 @@ bot.on("message", async msg => {
 
 ### Hal Ke-Dua Yang Perlu Kalian Lakukan
 
-* Tambahkan Event "guildMemberAdd" Pada PROJECT Kalian
+* Tambahkan Event `"guildMemberAdd"` Pada PROJECT Kalian
 * Get Database Welcome Image
 * Buat Susunan Welcome Image
 * Send Welcome Image Berupa File Gambar
