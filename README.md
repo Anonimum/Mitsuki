@@ -21,7 +21,7 @@ Ubah Silahkan, Biar Bot Kalian Jadi Semakin Bagus. Selamat Mencoba!
 
 ## Read And Learn
 
-### Basic Code
+### Hal Yang Perlu Kalian Lakukan Pertama Kali
 
 * Berikut Ini Adalah Basic Code, Ubah Sendiri Jika Ada Yang Ingin Di Ubah.
 * Pastikan Ke-4 Package Yang Ada Diatas Sudah Kalian Install!
@@ -31,7 +31,7 @@ const Discord = require("discord.js");
 const db = require("quick.db");
 
 const Token = "TOKEN!"
-cons Prefix = "PREFIX!"
+const Prefix = "PREFIX!"
 
 const bot = new Discord.Client();
 
@@ -74,7 +74,7 @@ bot.on("guildMemberAdd", async(member) => {
 bot.login(Token);
 ```
 
-### Enable & Disable
+### Meng-Aktifkan & Meng-Nonaktifkan Welcome Image
 
 * **Enable**: Pilih Enable Untuk Meng-Aktifkan Welcome Image
 * **Disable**: Pilih Disable Untuk Meng-Nonaktifkan Welcome Image
@@ -103,7 +103,7 @@ bot.on("message", async(msg) => {
 
 <img src="https://cdn.discordapp.com/attachments/684577548381978657/687164334727888920/unknown.png"/>
 
-### Channel
+### Mengatur & Menentukan Channel Untuk Welcome Image
 
 * **Channel**: Welcome Image Akan Dikirim Pada Channel Yang Kalian Inginkan
 * **Usage**: `[Prefix]Welcome Channel <#channel>`
@@ -131,7 +131,7 @@ bot.on("message", async msg => {
 
 <img src="https://cdn.discordapp.com/attachments/684577548381978657/687165092458135582/unknown.png"/>
 
-### Message
+### Menambahkan & Mengganti Message Pada Welcome Image
 
 * **Message**: Mengganti Default Message Dengan Message Yang Kalian Inginkan. (Message Akan Ditampilkan Pada Welcome Image)
 * **Usage**: `[Prefix]Welcome Message <Message>`
@@ -159,7 +159,7 @@ bot.on("message", async msg => {
 
 <img src="https://cdn.discordapp.com/attachments/684577548381978657/687165271529750534/unknown.png"/>
 
-### Background
+### Mengganti Background Welcome Image
 
 * **Background**: Mengganti Default Background Dengan Background Yang Kalian Inginkan
 * **Usage**: `[Prefix]Welcome Background <URL -> .JPG / .PNG>`
@@ -189,7 +189,9 @@ bot.on("message", async msg => {
 
 ## Results
 
-<img src="https://cdn.discordapp.com/attachments/684577548381978657/687166866149736448/unknown.png"/>
+**Ini Adalah Hasil Dari Apa Yang Sudah Kalian Baca Dan Simak Diatas! Selamat Mencobaa!!**
+
+<img src="https://cdn.discordapp.com/attachments/684577548381978657/687259071413354526/unknown.png"/>
 
 
 
