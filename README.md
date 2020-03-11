@@ -7,6 +7,7 @@ Ubah Silahkan, Biar Bot Kalian Jadi Semakin Bagus. Selamat Mencoba!
 ## About
 
 ### Made by Meliodas.#4613 With Luve :3
+
 * Enable/Disable Welcome Image Sesuka Kalian
 * Channel Bisa Di Custom Dimanapun Kalian Mau
 * Message Bisa Di Custom... Max 34 Huruf (Recomended) Atau Lebih (Ubah Sendiri)
@@ -20,59 +21,6 @@ Ubah Silahkan, Biar Bot Kalian Jadi Semakin Bagus. Selamat Mencoba!
 * Install Canvas-Constructor `npm i canvas-constructor`
 
 ## Read And Learn
-
-### Hal Yang Perlu Kalian Lakukan Pertama Kali
-
-* Berikut Ini Adalah Basic Code, Ubah Sendiri Jika Ada Yang Ingin Di Ubah.
-* Pastikan Ke-4 Package Yang Ada Diatas Sudah Kalian Install!
-
-```js
-const Discord = require("discord.js");
-const db = require("quick.db");
-
-const Token = "TOKEN!"
-const Prefix = "PREFIX!"
-
-const bot = new Discord.Client();
-
-bot.on("ready", async() => {
-  console.log("Welcome Image Ready!")
-});
-
-bot.on("message", async msg => {
-  const args = msg.content.split(" ");
-  let command = msg.content.toLowerCase().split(" ")[0];
-  command = command.slice(Prefix.length);
-  const Argumen = args[1];
-  
-  if (command.toUpperCase() === "WELCOME") {
-    if (Argumen.toUpperCase() === "ENABLE") {
-      // Uppsss
-    };
-    if (Argumen.toUpperCase() === "DISABLE") {
-      // Uppsss
-    };
-    if (Argumen.toUpperCase() === "CHANNEL") {
-      // Uppsss
-    };
-    if (Argumen.toUpperCase() === "MESSAGE") {
-      // Uppsss
-    };
-    if (Argumen.toUpperCase() === "BACKGROUND") {
-      // Uppsss
-    };
-    if (Argumen.toUpperCase() === "TEST") {
-      // Uppsss
-    };
-  };
-});
-
-bot.on("guildMemberAdd", async member => {
-  // Uppsss
-});
-
-bot.login(Token);
-```
 
 ### Meng-Aktifkan & Meng-Nonaktifkan Welcome Image
 
@@ -243,7 +191,12 @@ bot.on("guildMemberAdd", async member => {
 
 ## Results
 
-**Ini Adalah Hasil Dari Apa Yang Sudah Kalian Baca Dan Simak Diatas! Selamat Mencobaa!!**
+Ini Adalah Hasil Dari Apa Yang Sudah Kalian Baca Dan Simak Diatas! Selamat Mencobaa!!
+
+* Enable/Disable Welcome Image Sesuka Kalian
+* Channel Bisa Di Custom Dimanapun Kalian Mau
+* Message Bisa Di Custom... Max 34 Huruf (Recomended) Atau Lebih (Ubah Sendiri)
+* Background Bisa Kalian Set Sendiri Menggunakan Link (`.JPG` / `.PNG`)
 
 <img src="https://cdn.discordapp.com/attachments/684577548381978657/687259071413354526/unknown.png"/>
 
