@@ -43,10 +43,10 @@ if (Argumen.toUpperCase() === "TEST") {
   if (Config === "YA") {
       
     let BG = db.get(`${msg.guild.id}.Config.Welcome.Background`);
-    if (!BG) BG = "https://wallpaperaccess.com/full/647810.jpg";
+    if (!BG) BG = "URL DEFAULT BACKGROUND";
       
     let MSG = db.get(`${msg.guild.id}.Config.Welcome.Message`);
-    if (!MSG) MSG = "Welcome To My Server! ENJOY! (Defaullt)";
+    if (!MSG) MSG = "DEFAULT MESSAGE";
       
     var imageUrlRegex = /\?size=2048$/g;
     var { body: avatar } = await get(msg.author.displayAvatarURL.replace(imageUrlRegex, "?size512"));
